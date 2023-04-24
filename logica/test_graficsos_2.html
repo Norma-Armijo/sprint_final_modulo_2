@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><button id="nuevo-grafico">Nuevo gráfico</button>
+
+<div id="graficos"></div>
+
+<script>
+const btnNuevoGrafico = document.getElementById('nuevo-grafico');
+const contenedorDeGraficos = document.getElementById('graficos');
+let numGrafico = 0;
+
+btnNuevoGrafico.addEventListener('click', function() {
+  // Crear un nuevo elemento canvas para el gráfico
+  const nuevoCanvas = document.createElement('canvas');
+  nuevoCanvas.id = 'grafico-' + numGrafico;
+  contenedorDeGraficos.appendChild(nuevoCanvas);
+  
+  // Crear el nuevo gráfico
+  const ctx = nuevoCanvas.getContext('2d');
+  const nuevoGrafico = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+      datasets: [{
+        label: 'Ventas',
+        data: [1200, 1500, 800, 1000, 2000, 1700],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+  
+  // Incrementar el contador de gráficos
+  numGrafico++;
+});
+
+
+</script>
+</body>
+</html>

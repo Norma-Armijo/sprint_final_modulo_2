@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="grafico" ></canvas>
+    <script>
+      const datos = [
+        { mes: "Enero", ventas: 1000, gastos: 600 },
+        { mes: "Febrero", ventas: 1200, gastos: 700 },
+        { mes: "Marzo", ventas: 800, gastos: 400 },
+        { mes: "Abril", ventas: 1500, gastos: 900 },
+        { mes: "Mayo", ventas: 1800, gastos: 1000 },
+        { mes: "Junio", ventas: 2000, gastos: 1200 },
+      ];
+      const ctx = document.getElementById("grafico").getContext("2d");
+
+      const chart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: datos.map((item) => item.mes),
+          datasets: [
+            {
+              label: "Ventas",
+              data: datos.map((item) => item.ventas),
+              backgroundColor: "blue",
+              
+  borderColor: 'blue',
+  borderWidth: 4
+            },
+            {
+              label: "Gastos",
+              data: datos.map((item) => item.gastos),
+              backgroundColor: "red",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
