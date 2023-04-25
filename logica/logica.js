@@ -1,3 +1,26 @@
+//Comprobar Login
+function comprobar() {
+  let x = document.getElementById("usuario");
+  let y = document.getElementById("password");
+  if (x.value === y.value) {
+    alert("Los datos ingresados son identicos");
+   /*
+    var url = "productos.html";
+
+    var a = document.createElement("a");
+    a.target = "_blank";
+    a.href = url;
+    a.click(); */
+
+      window.open("pagina_privada.html");
+  } else {
+    alert("Los datos ingresados no son idénticos");
+  }
+  //alert("FUNCIONO");
+}
+
+
+
 //REGISTRAR PACIENTE
 
 function ingresar() {
