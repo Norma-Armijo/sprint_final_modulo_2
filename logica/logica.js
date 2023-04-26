@@ -135,6 +135,107 @@ function examen_glucosa() {
 }
 
 
+
+
+function examen_funcion_renal() {
+  alert("entre a funcion renal");
+  
+  let rut_paciente = document.getElementById("rut_paciente").value;
+  alert(rut_paciente);
+ 
+  let creatinina = parseInt(document.getElementById("creatinina").value);
+ let urea = parseInt(document.getElementById("urea").value);
+ let acidoUrico = parseInt(document.getElementById("acidoUrico").value);
+ let albumina = parseInt(document.getElementById("albumina").value);
+  
+  
+  
+  let fecha = document.getElementById("fecha_examen_funcion_renal").value;
+  let fecha_date = new Date(fecha);
+  alert(fecha);
+  
+  
+  
+  let persistencia = new Persistencia();
+  let examen = new FuncionRenal(
+    creatinina,
+    urea,
+    acidoUrico,
+    albumina,
+    fecha_date
+  );
+  
+  persistencia.agregar_examen(rut_paciente, "PRUEBAS-FUNCION-RENAL", examen);
+}
+
+
+
+
+function examen_funcion_pulmonar() {
+  alert("entre a funcion pulmonar");
+  let rut_paciente = document.getElementById("rut_paciente").value;
+  alert(rut_paciente);
+
+ let capacidadVital = 
+   document.getElementById("capacidadVital").value
+  ;
+  alert(capacidadVital);
+ let volumenCorriente = parseInt(
+   document.getElementById("volumenCorriente").value
+  ); alert(volumenCorriente);
+ let volumenResidual = parseInt(
+   document.getElementById("volumenResidual").value
+  ); alert(volumenResidual);
+ let flujoEsencial = parseInt(document.getElementById("flujoEsencial").value);
+  alert(flujoEsencial)
+  let fecha = document.getElementById("fecha_examen_funcion_pulmonar").value;
+  let fecha_date = new Date(fecha);
+  alert(fecha);
+  let persistencia = new Persistencia();
+  let examen = new FuncionPulmonar(
+    capacidadVital,
+    volumenCorriente,
+    volumenResidual,
+    flujoEsencial,
+    fecha_date
+  );
+  alert(examen.capacidadVital);
+  persistencia.agregar_examen(rut_paciente, "PRUEBAS-FUNCION-PULMONAR", examen);
+}
+
+
+function examen_de_sangre() {
+  alert("entre a examen de sangre");
+  let rut_paciente = document.getElementById("rut_paciente").value;
+  alert(rut_paciente);
+
+
+ const hemoglobina = parseFloat(document.getElementById("hemoglobina").value);
+ const globulosBlancos = parseInt(
+   document.getElementById("globulosBlancos").value
+ );
+ const globulosRojos = parseFloat(
+   document.getElementById("globulosRojos").value
+ );
+ const plaquetas = parseInt(document.getElementById("plaquetas").value);
+
+  let fecha = document.getElementById("fecha_examen_de_sangre").value;
+  let fecha_date = new Date(fecha);
+  alert(fecha);
+  let persistencia = new Persistencia();
+  let examen = new ExamenDeSangre(
+    hemoglobina,
+    globulosBlancos,
+    globulosRojos,
+    plaquetas,
+    fecha_date
+  );
+  alert(examen.capacidadVital);
+  persistencia.agregar_examen(rut_paciente, "EXAMEN-DE-SANGRE", examen);
+}
+
+
+
 /*
 
 function imprimir_grafico_glucosa() {
@@ -410,6 +511,24 @@ class Persistencia {
     }
     this.subir_arreglo_localstorage(pacientes);
   }
+
+  agregar_enfermedad(rut_paciente, enfermedad) {
+    alert(rut_paciente);
+    let pacientes = this.descargar_arreglo_localstorage();
+
+    for (let i = 0; i < pacientes.length; i++) {
+      console.log("i: " + i);
+      console.log("PACIENTES :" + pacientes[i].rut);
+      console.log("RUT INGRESADO : " + rut_paciente);
+
+      if (pacientes[i].rut == rut_paciente) {
+        console.log("RUT COINCIDE");
+
+        pacientes[i].enfermedades.push(enfermedad);
+      }
+    }
+    this.subir_arreglo_localstorage(pacientes);
+  }
 }
 
 //---------------------------------------------------------------
@@ -417,35 +536,39 @@ class Persistencia {
 
 class Examen { }
 
-class ExamenDeSangre extends Examen {
-  constructor(hemoglobina, globulosBlancos, globulosRojos, plaquetas) {
+class ExamenDeSangre  {
+  constructor(hemoglobina, globulosBlancos, globulosRojos, plaquetas,fecha) {
     this.hemoglobina = hemoglobina;
     this.globulosBlancos = globulosBlancos;
     this.globulosRojos = globulosRojos;
     this.plaquetas = plaquetas;
+    this.fecha = fecha;
   }
 }
 
-class PruebasFuncionRenal extends Examen {
-  constructor(creatinina, urea, acidoUrico, albumina) {
+class FuncionRenal  {
+  constructor(creatinina, urea, acidoUrico, albumina,fecha) {
     this.creatinina = creatinina;
     this.urea = urea;
     this.acidoUrico = acidoUrico;
     this.albumina = albumina;
+    this.fecha = fecha;
   }
 }
 
-class FuncionPulmonar extends Examen {
+class FuncionPulmonar  {
   constructor(
     capacidadVital,
     volumenCorriente,
     volumenResidual,
-    flujoEsencial
+    flujoEsencial,
+  fecha
   ) {
     this.capacidadVital = capacidadVital;
     this.volumenCorriente = volumenCorriente;
     this.volumenResidual = volumenResidual;
     this.flujoEsencial = flujoEsencial;
+    this.fecha = fecha;
   }
 }
 
@@ -480,302 +603,341 @@ class ExamenDeGlucosa {
 //----------------------------------------------------
 //ENFERMEDADES
 
-let enfermadades = [
-  {
-    id: 1,
-    enfermedad: "Resfriado común",
-    sintomas: [
-      "Congestión nasal",
-      "Secreción nasal",
-      "Estornudos",
-      "Dolor de garganta",
-      "Tos",
-      "Fiebre baja",
-      "Dolor de cabeza",
-    ],
-  },
-  {
-    id: 2,
-    enfermedad: "Gripe",
-    sintomas: [
-      "Fiebre alta",
-      "Dolor de cabeza",
-      "Dolor muscular",
-      "Escalofríos",
-      "Dolor de garganta",
-      "Tos seca",
-      "Congestión nasal",
-      "Fatiga",
-    ],
-  },
-  {
-    id: 3,
-    enfermedad: "Bronquitis aguda",
-    sintomas: [
-      "Tos con flema",
-      "Fatiga",
-      "Fiebre baja",
-      "Dificultad para respirar",
-      "Sibilancias en el pecho",
-      "Dolor en el pecho",
-      "Dolor de cabeza",
-      "Dolor muscular",
-    ],
-  },
-  {
-    id: 4,
-    enfermedad: "Neumonía",
-    sintomas: [
-      "Fiebre alta",
-      "Tos con flema",
-      "Dificultad para respirar",
-      "Dolor en el pecho",
-      "Fatiga",
-      "Confusión",
-      "Náuseas",
-      "Vómitos",
-    ],
-  },
-  {
-    id: 5,
-    enfermedad: "Asma",
-    sintomas: [
-      "Sibilancias en el pecho",
-      "Dificultad para respirar",
-      "Opresión en el pecho",
-      "Tos",
-      "Fatiga",
-    ],
-  },
-  {
-    id: 6,
-    enfermedad: "Alergia",
-    sintomas: [
-      "Estornudos",
-      "Picazón en la nariz",
-      "Congestión nasal",
-      "Dolor de cabeza",
-      "Dolor de garganta",
-      "Tos",
-      "Ojos llorosos",
-      "Hinchazón en la cara",
-    ],
-  },
-  {
-    id: 7,
-    enfermedad: "Diabetes tipo 1",
-    sintomas: [
-      "Aumento de la sed",
-      "Aumento de la micción",
-      "Fatiga",
-      "Pérdida de peso",
-      "Visión borrosa",
-      "Infecciones frecuentes",
-      "Cortes y heridas que tardan en sanar",
-    ],
-  },
-  {
-    id: 8,
-    enfermedad: "Diabetes tipo 2",
-    sintomas: [
-      "Aumento de la sed",
-      "Aumento de la micción",
-      "Fatiga",
-      "Pérdida de peso",
-      "Visión borrosa",
-      "Infecciones frecuentes",
-      "Cortes y heridas que tardan en sanar",
-    ],
-  },
-  ,
-  {
-    id: 9,
-    enfermedad: "Hipertiroidismo",
-    sintomas: [
-      "Pérdida de peso",
-      "Palpitaciones cardíacas",
-      "Nerviosismo",
-      "Sudoración excesiva",
-      "Temblor en las manos",
-      "Fatiga",
-      "Debilidad muscular",
-      "Diarrea",
-    ],
-  },
-  {
-    id: 10,
-    enfermedad: "Hipotiroidismo",
-    sintomas: [
-      "Fatiga",
-      "Aumento de peso",
-      "Intolerancia al frío",
-      "Piel seca",
-      "Estreñimiento",
-      "Depresión",
-      "Dolor muscular",
-      "Dificultad para concentrarse",
-    ],
-  },
-  {
-    id: 11,
-    enfermedad: "Enfermedad celíaca",
-    sintomas: [
-      "Dolor abdominal",
-      "Hinchazón abdominal",
-      "Diarrea",
-      "Pérdida de peso",
-      "Fatiga",
-      "Anemia",
-      "Erupciones en la piel",
-      "Depresión",
-    ],
-  },
-  {
-    id: 12,
-    enfermedad: "Enfermedad inflamatoria intestinal",
-    sintomas: [
-      "Diarrea",
-      "Dolor abdominal",
-      "Pérdida de peso",
-      "Fatiga",
-      "Fiebre",
-      "Sangrado rectal",
-      "Anemia",
-      "Falta de apetito",
-    ],
-  },
-  {
-    id: 13,
-    enfermedad: "Síndrome de fatiga crónica",
-    sintomas: [
-      "Fatiga extrema",
-      "Dolor muscular",
-      "Dolor articular",
-      "Dolor de cabeza",
-      "Problemas de memoria y concentración",
-      "Dolor de garganta",
-      "Ganglios linfáticos inflamados",
-    ],
-  },
-  {
-    id: 14,
-    enfermedad: "Fibromialgia",
-    sintomas: [
-      "Dolor muscular",
-      "Fatiga",
-      "Problemas de sueño",
-      "Rigidez matutina",
-      "Dolor de cabeza",
-      "Problemas de memoria y concentración",
-      "Dolor abdominal",
-      "Depresión",
-    ],
-  },
-  {
-    id: 15,
-    enfermedad: "Esclerosis múltiple",
-    sintomas: [
-      "Problemas de visión",
-      "Entumecimiento o debilidad en extremidades",
-      "Pérdida de coordinación",
-      "Problemas de equilibrio",
-      "Fatiga",
-      "Problemas de memoria y concentración",
-      "Problemas de control de la vejiga",
-      "Depresión",
-    ],
-  },
-  {
-    id: 16,
-    enfermedad: "Parkinson",
-    sintomas: [
-      "Temblor en las manos, brazos, piernas, mandíbula y cara",
-      "Rigidez muscular",
-      "Lentitud en los movimientos",
-      "Problemas de equilibrio y coordinación",
-      "Alteraciones en la postura",
-      "Problemas de habla",
-      "Depresión",
-    ],
-  },
-  {
-    id: 17,
-    enfermedad: "Enfermedad de Alzheimer",
-    sintomas: [
-      "Pérdida de memoria",
-      "Dificultad para realizar tareas cotidianas",
-      "Problemas de lenguaje",
-      "Desorientación temporal y espacial",
-      "Disminución del juicio y razonamiento",
-      "Cambios de humor y personalidad",
-      "Pérdida de iniciativa",
-    ],
-  },
-  {
-    id: 13,
-    enfermedad: "Síndrome de fatiga crónica",
-    sintomas: [
-      "Fatiga extrema",
-      "Dolor muscular",
-      "Dolor articular",
-      "Dolor de cabeza",
-      "Problemas de memoria y concentración",
-      "Dolor de garganta",
-      "Ganglios linfáticos inflamados",
-    ],
-  },
-  {
-    id: 14,
-    enfermedad: "Fibromialgia",
-    sintomas: [
-      "Dolor muscular",
-      "Fatiga",
-      "Problemas de sueño",
-      "Rigidez matutina",
-      "Dolor de cabeza",
-      "Problemas de memoria y concentración",
-      "Dolor abdominal",
-      "Depresión",
-    ],
-  },
-  {
-    id: 15,
-    enfermedad: "Esclerosis múltiple",
-    sintomas: [
-      "Problemas de visión",
-      "Entumecimiento o debilidad en extremidades",
-      "Pérdida de coordinación",
-      "Problemas de equilibrio",
-      "Fatiga",
-      "Problemas de memoria y concentración",
-      "Problemas de control de la vejiga",
-      "Depresión",
-    ],
-  },
-  {
-    id: 16,
-    enfermedad: "Parkinson",
-    sintomas: [
-      "Temblor en las manos, brazos, piernas, mandíbula y cara",
-      "Rigidez muscular",
-      "Lentitud en los movimientos",
-      "Problemas de equilibrio y coordinación",
-      "Alteraciones en la postura",
-      "Problemas de habla",
-      "Depresión",
-    ],
-  },
-  {
-    id: 17,
-    enfermedad: "Enfermedad de Alzheimer",
-    sintomas: [
-      "Pérdida de memoria",
-      "Dificultad para realizar tareas cotidianas",
-      "Problemas de lenguaje",
-      "Desorientación temporal y espacial",
-      "Disminución del juicio y razonamiento",
-      "Cambios de humor y personalidad",
-      "Pérdida de iniciativa",
-    ],
-  },
-];
+
+  let enfermadades = [
+    {
+      id: 1,
+      enfermedad: "Resfriado común",
+      sintomas: [
+        "Congestión nasal",
+        "Secreción nasal",
+        "Estornudos",
+        "Dolor de garganta",
+        "Tos",
+        "Fiebre baja",
+        "Dolor de cabeza",
+      ],
+    },
+    {
+      id: 2,
+      enfermedad: "Gripe",
+      sintomas: [
+        "Fiebre alta",
+        "Dolor de cabeza",
+        "Dolor muscular",
+        "Escalofríos",
+        "Dolor de garganta",
+        "Tos seca",
+        "Congestión nasal",
+        "Fatiga",
+      ],
+    },
+    {
+      id: 3,
+      enfermedad: "Bronquitis aguda",
+      sintomas: [
+        "Tos con flema",
+        "Fatiga",
+        "Fiebre baja",
+        "Dificultad para respirar",
+        "Sibilancias en el pecho",
+        "Dolor en el pecho",
+        "Dolor de cabeza",
+        "Dolor muscular",
+      ],
+    },
+    {
+      id: 4,
+      enfermedad: "Neumonía",
+      sintomas: [
+        "Fiebre alta",
+        "Tos con flema",
+        "Dificultad para respirar",
+        "Dolor en el pecho",
+        "Fatiga",
+        "Confusión",
+        "Náuseas",
+        "Vómitos",
+      ],
+    },
+    {
+      id: 5,
+      enfermedad: "Asma",
+      sintomas: [
+        "Sibilancias en el pecho",
+        "Dificultad para respirar",
+        "Opresión en el pecho",
+        "Tos",
+        "Fatiga",
+      ],
+    },
+    {
+      id: 6,
+      enfermedad: "Alergia",
+      sintomas: [
+        "Estornudos",
+        "Picazón en la nariz",
+        "Congestión nasal",
+        "Dolor de cabeza",
+        "Dolor de garganta",
+        "Tos",
+        "Ojos llorosos",
+        "Hinchazón en la cara",
+      ],
+    },
+    {
+      id: 7,
+      enfermedad: "Diabetes tipo 1",
+      sintomas: [
+        "Aumento de la sed",
+        "Aumento de la micción",
+        "Fatiga",
+        "Pérdida de peso",
+        "Visión borrosa",
+        "Infecciones frecuentes",
+        "Cortes y heridas que tardan en sanar",
+      ],
+    },
+    {
+      id: 8,
+      enfermedad: "Diabetes tipo 2",
+      sintomas: [
+        "Aumento de la sed",
+        "Aumento de la micción",
+        "Fatiga",
+        "Pérdida de peso",
+        "Visión borrosa",
+        "Infecciones frecuentes",
+        "Cortes y heridas que tardan en sanar",
+      ],
+    },
+    
+    {
+      id: 9,
+      enfermedad: "Hipertiroidismo",
+      sintomas: [
+        "Pérdida de peso",
+        "Palpitaciones cardíacas",
+        "Nerviosismo",
+        "Sudoración excesiva",
+        "Temblor en las manos",
+        "Fatiga",
+        "Debilidad muscular",
+        "Diarrea",
+      ],
+    },
+    {
+      id: 10,
+      enfermedad: "Hipotiroidismo",
+      sintomas: [
+        "Fatiga",
+        "Aumento de peso",
+        "Intolerancia al frío",
+        "Piel seca",
+        "Estreñimiento",
+        "Depresión",
+        "Dolor muscular",
+        "Dificultad para concentrarse",
+      ],
+    },
+    {
+      id: 11,
+      enfermedad: "Enfermedad celíaca",
+      sintomas: [
+        "Dolor abdominal",
+        "Hinchazón abdominal",
+        "Diarrea",
+        "Pérdida de peso",
+        "Fatiga",
+        "Anemia",
+        "Erupciones en la piel",
+        "Depresión",
+      ],
+    },
+    {
+      id: 12,
+      enfermedad: "Enfermedad inflamatoria intestinal",
+      sintomas: [
+        "Diarrea",
+        "Dolor abdominal",
+        "Pérdida de peso",
+        "Fatiga",
+        "Fiebre",
+        "Sangrado rectal",
+        "Anemia",
+        "Falta de apetito",
+      ],
+    },
+    {
+      id: 13,
+      enfermedad: "Síndrome de fatiga crónica",
+      sintomas: [
+        "Fatiga extrema",
+        "Dolor muscular",
+        "Dolor articular",
+        "Dolor de cabeza",
+        "Problemas de memoria y concentración",
+        "Dolor de garganta",
+        "Ganglios linfáticos inflamados",
+      ],
+    },
+    {
+      id: 14,
+      enfermedad: "Fibromialgia",
+      sintomas: [
+        "Dolor muscular",
+        "Fatiga",
+        "Problemas de sueño",
+        "Rigidez matutina",
+        "Dolor de cabeza",
+        "Problemas de memoria y concentración",
+        "Dolor abdominal",
+        "Depresión",
+      ],
+    },
+    {
+      id: 15,
+      enfermedad: "Esclerosis múltiple",
+      sintomas: [
+        "Problemas de visión",
+        "Entumecimiento o debilidad en extremidades",
+        "Pérdida de coordinación",
+        "Problemas de equilibrio",
+        "Fatiga",
+        "Problemas de memoria y concentración",
+        "Problemas de control de la vejiga",
+        "Depresión",
+      ],
+    },
+    {
+      id: 16,
+      enfermedad: "Parkinson",
+      sintomas: [
+        "Temblor en las manos, brazos, piernas, mandíbula y cara",
+        "Rigidez muscular",
+        "Lentitud en los movimientos",
+        "Problemas de equilibrio y coordinación",
+        "Alteraciones en la postura",
+        "Problemas de habla",
+        "Depresión",
+      ],
+    },
+    {
+      id: 17,
+      enfermedad: "Enfermedad de Alzheimer",
+      sintomas: [
+        "Pérdida de memoria",
+        "Dificultad para realizar tareas cotidianas",
+        "Problemas de lenguaje",
+        "Desorientación temporal y espacial",
+        "Disminución del juicio y razonamiento",
+        "Cambios de humor y personalidad",
+        "Pérdida de iniciativa",
+      ],
+    },
+    {
+      id: 13,
+      enfermedad: "Síndrome de fatiga crónica",
+      sintomas: [
+        "Fatiga extrema",
+        "Dolor muscular",
+        "Dolor articular",
+        "Dolor de cabeza",
+        "Problemas de memoria y concentración",
+        "Dolor de garganta",
+        "Ganglios linfáticos inflamados",
+      ],
+    },
+    {
+      id: 14,
+      enfermedad: "Fibromialgia",
+      sintomas: [
+        "Dolor muscular",
+        "Fatiga",
+        "Problemas de sueño",
+        "Rigidez matutina",
+        "Dolor de cabeza",
+        "Problemas de memoria y concentración",
+        "Dolor abdominal",
+        "Depresión",
+      ],
+    },
+    {
+      id: 15,
+      enfermedad: "Esclerosis múltiple",
+      sintomas: [
+        "Problemas de visión",
+        "Entumecimiento o debilidad en extremidades",
+        "Pérdida de coordinación",
+        "Problemas de equilibrio",
+        "Fatiga",
+        "Problemas de memoria y concentración",
+        "Problemas de control de la vejiga",
+        "Depresión",
+      ],
+    },
+    {
+      id: 16,
+      enfermedad: "Parkinson",
+      sintomas: [
+        "Temblor en las manos, brazos, piernas, mandíbula y cara",
+        "Rigidez muscular",
+        "Lentitud en los movimientos",
+        "Problemas de equilibrio y coordinación",
+        "Alteraciones en la postura",
+        "Problemas de habla",
+        "Depresión",
+      ],
+    },
+    {
+      id: 17,
+      enfermedad: "Enfermedad de Alzheimer",
+      sintomas: [
+        "Pérdida de memoria",
+        "Dificultad para realizar tareas cotidianas",
+        "Problemas de lenguaje",
+        "Desorientación temporal y espacial",
+        "Disminución del juicio y razonamiento",
+        "Cambios de humor y personalidad",
+        "Pérdida de iniciativa",
+      ],
+    },
+  ];
+
+function imprimir_enfermedades() { 
+
+  
+  alert("CARGO");
+  
+
+  alert(enfermadades);
+let enfermedadesSelect = document.getElementById("enfermedades-select");
+
+// Agregar las opciones al elemento select
+  for (let i = 0; i < enfermadades.length; i++) {
+    let option = document.createElement("option");
+    option.text = enfermadades[i].enfermedad;
+    enfermedadesSelect.add(option);
+
+  }
+
+
+}
+
+
+
+
+
+function agregar_enfermedad_paciente() {
+
+
+
+  let rut = document.getElementById("rut_paciente").value;
+
+  let enfermedad = document.getElementById("enfermedades-select").value;
+  alert(rut);
+  alert(enfermedad);
+  let persistencia = new Persistencia();
+  persistencia.agregar_enfermedad(rut, enfermedad);
+}
+
