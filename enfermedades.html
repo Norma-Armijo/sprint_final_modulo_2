@@ -14,25 +14,7 @@
     <title>Home</title>
   </head>
 
-<body class="mt-5">
-  <header class="container">
-    <div class="row">
-    <div class="justify-content-center col-lg-3">
-      <img src="https://www.pngmart.com/files/6/Phoenix-PNG-Transparent-Picture-1.png" alt="Un fenix" width="240px" />
-    </div>
-    <div class="container-fluid col-lg-9  mt-3">
-      <div class="inicio">
-        <h1 id="titulo">
-          Fenix
-          </h1>
-          <h2 id="subtitulo">
-            Sistema de acceso global de datos de pacientes
-          </h2>
-      </div>
-    </div>
-  </div>
-  </header>
-
+<body onload="imprimir_enfermedades()">
   <nav class="navbar navbar-expand-lg navbar-dark px-3 fixed-top" style="background-color: black;">
 
     <a class="navbar-brand" href="index.html">
@@ -63,465 +45,67 @@
       </ul>
     </div>
   </nav>
-
+  <header class="container">
+    <div class="row">
+    <div class="justify-content-center col-lg-3">
+      <img src="https://www.pngmart.com/files/6/Phoenix-PNG-Transparent-Picture-1.png" alt="Un fenix" width="240px" />
+    </div>
+    <div class="container-fluid col-lg-9  mt-3">
+      <div class="inicio">
+        <h1 id="titulo">
+          Fenix
+          </h1>
+          <h2 id="subtitulo">
+            Sistema de acceso global de datos de pacientes
+          </h2>
+      </div>
+    </div>
+  </div>
+  </header>
   <div class="container-fluid  ">
     <div class="row">
       <div class="col-12  p-0">
-        <details class="text-white bg-success m-0 rounded">
-          <summary class="text-white bg-success m-0 w-50">
+        <details class="bg-secondary-subtle m-0 rounded">
+          <summary class="text-white bg-secondary m-0 w-50">
             Ingreso de enfermedades
           </summary>
 
-          <ul id="enlace_dom">
-
+          <ul id="">
+            <h1>Enfermedades</h1>
+            <form action="">
+             
+              <label for="rut_paciente">
+               RUT PACIENTE
+              </label><br>
+              <input type="text" id="rut_paciente"><br>
+              <label for="">Observaciones</label><br>
+              <textarea name="" id="enfermedad_observaciones" cols="30" rows="10"></textarea> <br>
+           <label for="enfermedades-select"> Diagnostico</label> <br>
+              <select id="enfermedades-select"></select>
+               <br>
+               <button class="btn btn-danger" onclick="agregar_enfermedad_paciente()">Agregar enfermedad</button>
           </ul>
-          <div id="totales"></div>
-          <div id="total-total"></div>
-          <div class="card"><a type="button ms-5" class="btn btn-danger" href="pago.html" >Pagar</a></div>
         </details>
       </div>
     </div>
   </div>
   <div class="container-fluid text-center">
-    <div class="row bg-secondary">
+    <div class="row bg-secondary-subtle" id="contendedor_enfermedades">
       <!--INICIO COL  1-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2">
+      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2" >
         <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
+        <div class="card bg-light display-6 w-100">
           <div class="card-header">
             <div>01</div>
-            <div>id:dsk_001</div>
-            <div>Desktop AMD Ryzen 3 8GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (1).jpg" alt="" width="200" />
+            <div>esclerosis mutiple</div>
           </div>
           <div class="card-footer">
-            <div>$350.000</div>
+            <div>Dr.ABC</div>
 
-            <div class="container-fluid mt-2">
-              <div class="row justify-content-evenly">
-
-                <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                  id="cant_dsk_001" min="1" max="1000" />
-
-                <button class="btn btn-danger w-25 "
-                  onclick="agregar_producto({'id':'dsk_001','precio':350000,'nombre':'Ryzen 3 8GB 240GB'});">
-                  +
-                </button>
-                <button class="btn btn-danger w-25" onclick="borrar('dsk_001')">
-                  -
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
         <!--  carta final   -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 2-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>02</div>
-            <div>dsk_002</div>
-            <div>Desktop AMD Ryzen 5 8GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (2).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$550.000</div>
-            <div class="container-fluid mt-2">
-              <div class="row justify-content-evenly">
-
-                <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                  id="cant_dsk_002" min="1" max="1000" />
-
-                <button class="btn btn-danger w-25 "
-                  onclick="agregar_producto({'id':'dsk_002','precio':550000,'nombre':'Desktop AMD Ryzen 5 8GB 240GB'});">
-                  +
-                </button>
-                <button class="btn btn-danger w-25" onclick="borrar('dsk_002')">
-                  -
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 3-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>03</div>
-            <div>id:dsk_003</div>
-            <div>Desktop AMD Ryzen 7 8GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (3).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$750.000</div>
-
-            <div>
-              <div class="container-fluid mt-2">
-                <div class="row justify-content-evenly">
-
-                  <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                    id="cant_dsk_003" min="1" max="1000" />
-
-                  <button class="btn btn-danger w-25 "
-                    onclick="agregar_producto({'id':'dsk_003','precio':750000,'nombre':'Desktop AMD Ryzen 7 8GB 240GB'});">
-                    +
-                  </button>
-                  <button class="btn btn-danger w-25" onclick="borrar('dsk_003')">
-                    -
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 4-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>04</div>
-            <div>id:dsk_004</div>
-            <div>Desktop Intel i3 8GB 240GB</div>
-          </div>
-
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (4).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>400.000</div>
-           
-            <div class="container-fluid mt-2">
-              <div class="row justify-content-evenly">
-
-                <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                  id="cant_dsk_004" min="1" max="1000" />
-
-                <button class="btn btn-danger w-25 "
-                  onclick="agregar_producto({'id':'dsk_004','precio':400000,'nombre':'Desktop Intel i3 8GB 240GB'});">
-                  +
-                </button>
-                <button class="btn btn-danger w-25" onclick="borrar('dsk_004')">
-                  -
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 5 -->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>05</div>
-            <div>id:dsk_005</div>
-            <div>Desktop Intel i5 8GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (5).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$600.000</div>
-            <div>
-            <div class="container-fluid mt-2">
-              <div class="row justify-content-evenly">
-
-                <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                  id="cant_dsk_005" min="1" max="1000" />
-
-                <button class="btn btn-danger w-25 "
-                  onclick="agregar_producto({'id':'dsk_005','precio':600000,'nombre':'Desktop Intel i5 8GB 240GB'});">
-                  +
-                </button>
-                <button class="btn btn-danger w-25" onclick="borrar('dsk_005')">
-                  -
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 6-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>06</div>
-            <div>id:dsk_006</div>
-            <div>Desktop Intel i7 8GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (1).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$350.000</div>
-            <div>
-               <div class="container-fluid mt-2">
-                <div class="row justify-content-evenly">
-                    <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                    id="cant_dsk_006" min="1" max="1000" />
-              <button class="btn btn-danger w-25"
-                onclick="agregar_producto({'id':'dsk_006','precio':350000,'nombre':'Equipo 6'});">
-                +
-              </button>
-              <button class="btn btn-danger w-25" onclick="borrar('dsk_006')">
-                -
-              </button>
-            </div>
-          </div>
-          </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 7-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>07</div>
-            <div>id:dsk_007</div>
-            <div>Desktop AMD Ryzen 3 16GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (4).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$450.000</div>
-            <div>
-               <div class="container-fluid mt-2">
-                <div class="row justify-content-evenly">
-                    <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                    id="cant_dsk_007" min="1" max="1000" />
-              <button class="btn btn-danger w-25"
-                onclick="agregar_producto({'id':'dsk_007','precio':450000,'nombre':'Desktop AMD Ryzen 3 16GB 240GB'});">
-                +
-              </button>
-              <button class="btn btn-danger w-25" onclick="borrar('dsk_007')">
-                -
-              </button>
-                </div>
-          </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 8-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>08</div>
-            <div>id:dsk_008</div>
-            <div>Desktop AMD Ryzen 5 16GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (2).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$650.000</div>
-            <div>
-                    <div class="container-fluid mt-2">
-                <div class="row justify-content-evenly">
-                    <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                    id="cant_dsk_008" min="1" max="1000" />
-              <button class="btn btn-danger w-25"
-                onclick="agregar_producto({'id':'dsk_008','precio':650000,'nombre':'Desktop AMD Ryzen 5 16GB 240GB'});">
-                +
-              </button>
-              <button class="btn btn-danger w-25" onclick="borrar('dsk_008')">
-                -
-              </button>
-              </div>
-          </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 9-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>09</div>
-            <div>id:dsk_009</div>
-            <div>Desktop AMD Ryzen 7 16GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (1).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$750.000</div>
-            <div>
-              <div class="container-fluid mt-2">
-                <div class="row justify-content-evenly">
-                    <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                    id="cant_dks_009" min="1" max="1000" />
-              <button class="btn btn-danger w-25"
-                onclick="agregar_producto({'id':'dsk_009','precio':7500000,'nombre':'Equipo 9'});">
-                +
-              </button>
-              <button class="btn btn-danger w-25" onclick="borrar('dsk_009')">
-                -
-              </button>
-            </div>
-          </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 10-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>10</div>
-            <div>id:dsk_010</div>
-            <div>Desktop Intel i 3 16GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (1).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$500.000</div>
-            <div>
-               <div class="container-fluid mt-2">
-                <div class="row justify-content-evenly">
-                    <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                    id="cant_dsk_010" min="1" max="1000" />
-              <button class="btn btn-danger w-25"
-                onclick="agregar_producto({'id':'dsk_010','precio':500000,'nombre':'Equipo 10'});">
-                +
-              </button>
-              <button class="btn btn-danger w-25" onclick="borrar('dsk_010')">
-                -
-              </button>
-                </div>
-          </div>
-            </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-      <!--INICIO COL 11-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>11</div>
-            <div>dsk_011</div>
-            <div>Desktop Intel i 5 16GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (2).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$700.000</div>
-
-            <div class="container-fluid mt-2">
-              <div class="row justify-content-evenly">
-                  <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                  id="cant_dsk_011" min="1" max="1000" />
-            <button class="btn btn-danger w-25"
-              onclick="agregar_producto({'id':'dsk_011','precio':700000,'nombre':'Equipo 11'});">
-              +
-            </button>
-            <button class="btn btn-danger w-25" onclick="borrar('dsk_011')">
-              -
-            </button>
-          </div>
-        </div>
-
-          
-          </div>
-        </div>
-
-        <!--  carta final -->
-      </div>
-      <!--FINAL COL-->
-
-
-      
-
-      <!--INICIO COL 12-->
-      <div class="col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2 shadow-sm" >
-        <!--   carta inicio   -->
-        <div class="card bg-warning text-white display-6 w-100">
-          <div class="card-header">
-            <div>12</div>
-            <div>id:dsk_012</div>
-            <div>Desktop Intel i 5 16GB 240GB</div>
-          </div>
-          <div class="card-body text-center">
-            <img class="img-thumbnail" src="imagenes/1_200 (4).jpg" alt="" width="200" />
-          </div>
-          <div class="card-footer">
-            <div>$900.000</div>
-            <div class="container-fluid mt-2">
-              <div class="row justify-content-evenly">
-                  <input type="number" class="form-control w-25" placeholder="cantidad" aria-describedby="basic-addon1"
-                  id="cant_dsk_012" min="1" max="1000" />
-            <button class="btn btn-danger w-25"
-              onclick="agregar_producto({'id':'dsk_012','precio':900000,'nombre':'Equipo 12'});">
-              +
-            </button>
-            <button class="btn btn-danger w-25" onclick="borrar('dsk_012')">
-              -
-            </button>
-          </div>
-        </div>
-          </div>
-        </div>
-
-        <!--  carta final -->
       </div>
       <!--FINAL COL-->
     </div>
@@ -547,7 +131,9 @@
 
 
 </footer>
+<div onload="imprimir_enfermedades_paciente()"></div>
 </body>
+<script src="logica/imprimir_enfermedades.js"></script>
 
 <script src="logica/logica.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

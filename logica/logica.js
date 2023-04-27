@@ -4,6 +4,24 @@
 function comprobar() {
   let x = document.getElementById("usuario");
   let y = document.getElementById("password");
+  
+  let persistencia = new Persistencia();
+  let pacientes = persistencia.descargar_arreglo_localstorage();
+  alert(pacientes.length);
+  for (let i = 0; i < pacientes.length; i++) {
+   
+    if (pacientes[i].email == x.value) {
+alert(pacientes[i].email);
+      let rut_local = pacientes[i].rut;
+      localStorage.setItem("rut", rut_local);
+
+    }
+  }
+  
+  
+  
+  
+  
   if (x.value === y.value) {
     alert("Los datos ingresados son identicos");
    /*
@@ -14,18 +32,19 @@ function comprobar() {
     a.href = url;
     a.click(); */
 
+
       window.open("pagina_privada.html");
   } else {
     alert("Los datos ingresados no son idénticos");
   }
   //alert("FUNCIONO");
+ 
 }
 
-//Modal
-$('#exampleModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
 
+function prueba_1() { 
+  alert("ALERT SEGUNDA FUNCION");
+}
 
 
 //REGISTRAR PACIENTE
@@ -98,28 +117,65 @@ function btn_ingresar_paciente() {
   let email = document.getElementById("").value;
 
 */
-
+alert("Entrando a muestras")
   let persistencia = new Persistencia();
 
-  let paciente = new Paciente(
-    1,
-    "nombre",
-    12,
-    12,
-    "12.233.233-7",
-    "21/02/2023",
-    "0",
-    "l@l.cl",
-    445454545,
-    "direccion"
+  let paciente_1 = new Paciente(
+    "Juan", "Saldivar", 28, "16.456.789-9",
+    "01/01/2000", "A", "juan@juan.cl", "+569 4333 4333",
+    "La Gruta 265, Calera de Tango", "clave secreta"
+  );
+  alert(paciente_1);
+  console.log(paciente_1);
+   persistencia.agregar_paciente(paciente_1);
+
+
+
+
+  let paciente_2 = new Paciente(
+    "Sair",
+    "Diaz",
+    38,
+    "6.456.789-9",
+    "01/01/1985",
+    "A",
+    "sair@juan.cl",
+    "+569 3333 4333",
+    "Agua Santa 234, Viña de mar",
+    "clave secreta"
   );
 
-  console.log(paciente);
-  persistencia.agregar_paciente(paciente);
+  console.log(paciente_2);
+  
+   persistencia.agregar_paciente(paciente_2);
+
+
+
+
+  
+  let paciente_3 = new Paciente(
+    "Nilda",
+    "Bahamondes",
+    40,
+    "10.456.789-9",
+    "01/01/1983",
+    "A",
+    "nilda@juan.cl",
+    "+569 3333 3000",
+    "Pedro Montt, Valparaiso",
+    "clave secreta"
+  );
+
+  console.log(paciente_3);
+   persistencia.agregar_paciente(paciente_3);
   /*
     
   */
 }
+
+
+
+
 function agregar_examen() {
   let persistencia = new Persistencia();
   let examen = new ExamenDeGlucosa(2, 2, 2, 2);
@@ -142,16 +198,16 @@ function agregar_pariente_rut() {
 
 function examen_glucosa() {
   alert("entre a glucosa");
-  let rut_paciente = document.getElementById("rut_paciente").value;
-
+  let rut_paciente = document.getElementById("rut_paciente_examen").value;
+  alert(rut_paciente);
 
   let glucosaEnAyunasInput = document.getElementById("glucosaEnAyunas").value;
   let glucosaPostPrandialInput = document.getElementById("glucosaPostPrandial").value;
   let hemoglobinaGlicosiladaInput = document.getElementById("hemoglobinaGlicosilada").value;
   let toleranciaALaGlucosaInput = document.getElementById("toleranciaALaGlucosa").value;
   let fecha = document.getElementById("fecha_examen_glucosa").value;
-  let fecha_date = new Date();
-
+  let fecha_date = new Date(fecha);
+  alert(glucosaEnAyunasInput);
 
   let persistencia = new Persistencia();
   let examen = new ExamenDeGlucosa(
@@ -464,7 +520,7 @@ class Persistencia {
   }
 
   agregar_paciente(paciente) {
-    console.log("ENTRE EN AGREGAR PACIENTE");
+  alert("ENTRE EN AGREGAR PACIENTE");
 
     console.log(this.descargar_arreglo_localstorage());
     let pacientes = this.descargar_arreglo_localstorage();
@@ -967,9 +1023,13 @@ function agregar_enfermedad_paciente() {
   let rut = document.getElementById("rut_paciente").value;
 
   let enfermedad = document.getElementById("enfermedades-select").value;
+  let observaciones = document.getElementById("enfermedad_observaciones").value;
+
+  let diccionario_enfermedad = {"diagnostico":enfermedad,"observaciones":observaciones}
+  
   alert(rut);
   alert(enfermedad);
   let persistencia = new Persistencia();
-  persistencia.agregar_enfermedad(rut, enfermedad);
+  persistencia.agregar_enfermedad(rut, diccionario_enfermedad);
 }
 

@@ -1,9 +1,9 @@
 let arreglo = JSON.parse(localStorage.getItem("pacientes"));
 let arreglo_examen_de_sangre = [];
-
+let descarga_rut = localStorage.getItem("rut");
 for (let i = 0; i < arreglo.length; i++) {
   console.log(i);
-  if (arreglo[i].rut == "16") {
+  if (arreglo[i].rut == descarga_rut) {
     arreglo_examen_de_sangre = arreglo[i].examenes[3].lista;
     console.log("RUT ENCONTRADO");
   }

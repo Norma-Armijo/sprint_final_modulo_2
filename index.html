@@ -65,7 +65,7 @@
   
   <main class="container mt-3">
     <div class="row justify-content-center gy-2">
-      <section class="card col-lg-5 bg-info me-1">
+      <section class="card col-lg-5 bg-light me-1">
         <img src="assets/img/logo_hospital.png" class="card-img-top p-2" alt="Gente emocionada">
         <div class="card-body">
           <h5 class="card-title"></h5>
@@ -80,19 +80,11 @@
             lo que reduce la necesidad de registros en papel y la duplicación de pruebas médicas innecesarias.</p>
         </div>
       </section>    
-          <section class="card bg-danger col-lg-6" id="registro">
+          <section class="card bg-light col-lg-6" id="registro">
             <div class="card-body">
               <h5 class="card-title fw-bold">Registrate en nuestro sistema</h5>
               <form>
-                <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
    
     <h1>INGRESO DE PACIENTE</h1>
 <form action="">
@@ -172,32 +164,33 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </section>
-        <section class="card bg-info text-center col-lg-5  align-content-center me-1">
+        <section class="card bg-secondary-subtle text-center col-lg-5  align-content-center me-1">
           <div class="card-body">
             <h5 class="card-title ">Socios</h5>
             <div class="container  align-content-center">
               <div class="row justify-content-center  align-content-center">
               <div class="col-6"><img src="assets/img/logo1.png" class="img-thumbnail "  id="a" alt="Gente emocionada">
-                <figcaption><a href="" class="text-bottom">FONASA</a></figcaption>
+                <figcaption><a href="https://www.fonasa.cl/sites/fonasa/inicio" class="text-bottom btn btn-secondary">FONASA</a></figcaption>
               </div>
               <div class="col-6"><img src="assets/img/logo2.png" class="img-thumbnail "   id="b" alt="Gente emocionada">
-                <figcaption><a href="">Isapres</a></figcaption>
+                <figcaption><a href="https://www.supersalud.gob.cl/portal/w3-article-2528.html" class="btn btn-secondary">Isapres</a></figcaption>
               </div>
               <div class="col-6"><img src="assets/img/logo3.png" class="img-thumbnail "   id="c" alt="Gente emocionada">
-                <figcaption><a href="">Clinica Bupa</a></figcaption>
+                <figcaption><a href="https://www.clinicabupasantiago.cl/" class="btn btn-secondary">Clinica Bupa</a></figcaption>
               </div>
               <div class="col-6"><img src="assets/img/logo4.png" class="img-thumbnail "  id="d"alt="Gente emocionada">
-                <figcaption><a href="">Universidad del Desarrollo</a></figcaption>
+                <figcaption><a href="https://www.udd.cl/" class="btn btn-secondary">Universidad del Desarrollo</a></figcaption>
               </div>
             </div>
             </div>
             </div>
         </section>
-        <section class="card bg-warning text-center col-lg-6">
+        <section class="card bg-secondary-subtle text-center col-lg-6">
           <div class="card-body">
             <h5 class="card-title">Encuentranos</h5>
-            <p class="card-text"> Dirección: Calle Falsa #123</p>
-              <img src="assets/img/mapa.jpg" class="card-img-bottom" alt="Gente emocionada">
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d82135.76258481646!2d-70.64104677737053!3d-33.458336168062935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2scl!4v1682635911157!5m2!1sen!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
           </div>
         </section>
       </div>
@@ -222,6 +215,7 @@
 
 
   </footer>
+  <button onclick="btn_ingresar_paciente()">Muestras</button>
 </body>
 
 <script src="logica/logica.js"></script>
