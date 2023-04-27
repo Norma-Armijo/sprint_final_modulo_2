@@ -119,7 +119,7 @@ function examen_glucosa() {
   let hemoglobinaGlicosiladaInput = document.getElementById("hemoglobinaGlicosilada").value;
   let toleranciaALaGlucosaInput = document.getElementById("toleranciaALaGlucosa").value;
   let fecha = document.getElementById("fecha_examen_glucosa").value;
-  let fecha_date = new Date(fecha);
+  let fecha_date = new Date();
 
 
   let persistencia = new Persistencia();
@@ -151,7 +151,7 @@ function examen_funcion_renal() {
   
   
   let fecha = document.getElementById("fecha_examen_funcion_renal").value;
-  let fecha_date = new Date(fecha);
+  let fecha_date = new Date();
   alert(fecha);
   
   
@@ -189,7 +189,7 @@ function examen_funcion_pulmonar() {
  let flujoEsencial = parseInt(document.getElementById("flujoEsencial").value);
   alert(flujoEsencial)
   let fecha = document.getElementById("fecha_examen_funcion_pulmonar").value;
-  let fecha_date = new Date(fecha);
+  let fecha_date = new Date();
   alert(fecha);
   let persistencia = new Persistencia();
   let examen = new FuncionPulmonar(
@@ -220,7 +220,7 @@ function examen_de_sangre() {
  const plaquetas = parseInt(document.getElementById("plaquetas").value);
 
   let fecha = document.getElementById("fecha_examen_de_sangre").value;
-  let fecha_date = new Date(fecha);
+  let fecha_date = new Date();
   alert(fecha);
   let persistencia = new Persistencia();
   let examen = new ExamenDeSangre(
