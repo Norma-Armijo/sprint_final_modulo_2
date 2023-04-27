@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <title>Home</title>
+   <script src="logica/logica.js"></script>
 </head>
 
 <body>
@@ -21,16 +22,16 @@
       <div class="inicio">
         <h1 id="titulo">
           Fenix
-          </1>
+          </h1>
           <h2 id="subtitulo">
-            Proximamente contigo en la red!
+            Sistema de acceso global de datos de pacientes
           </h2>
       </div>
     </div>
   </div>
   </header>
 
-  <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background:black;">
+  <nav class="navbar navbar-expand-lg navbar-dark px-3 fixed-top" style="background-color: black;">
 
     <a class="navbar-brand" href="index.html">
       <img src="https://www.ailonwebs.com/_/img/pagina-web/pagina-web-ave-fenix.png" width="32" alt="Fenix"
@@ -42,106 +43,151 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav text-center">
-        <li class="nav-item">
-          <a class="nav-link rounded-5 mx-1 my-sm-2" href="productos.html">Quienes somos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-5 mx-1 my-sm-2" href="comprar.html">Contacto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-5 mx-1 my-sm-2" href="contacto.html">Proveedores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link rounded-5 mx-1 my-sm-2 bg-info" href="login.html">Ingreso</a>
-        </li>
 
+        <li class="nav-item">
+          <a class="nav-link rounded-5 mx-1 my-sm-2" href="index.html#noticias">Noticias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-5 mx-1 my-sm-2" href="contacto.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-5 mx-1 my-sm-2" href="proveedores.html">Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-5 mx-1 my-sm-2" href="index.html#registro">Registrarse </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-5 mx-1 my-sm-2" href="login.html">Ingreso</a>
+        </li>
       </ul>
     </div>
   </nav>
-
-  <main class="container-fluid mt-3">
+  
+  <main class="container mt-3">
     <div class="row justify-content-center gy-2">
-      
       <section class="card col-lg-5 bg-info me-1">
-        <img src="https://thumbs.dreamstime.com/b/gente-feliz-en-hospital-cl%C3%ADnica-126415835.jpg" class="card-img-top p-2" alt="Gente emocionada">
+        <img src="assets/img/logo_hospital.png" class="card-img-top p-2" alt="Gente emocionada">
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <p class="card-text"> Fénix es una ferretería con una amplia variedad de herramientas y
-            suministros para el hogar y la industria. Su atención al cliente es
-            excepcional, brindando asistencia en línea y vía telefónica para
-            resolver cualquier duda. Nos avalan más de 10 años de experiencia</p>
+          <p class="card-text">&nbsp; Este sistema permite a los proveedores de atención médica acceder a los registros de pacientes
+            desde cualquier lugar y en cualquier momento, lo que facilita la toma de decisiones clínicas informadas y mejora
+              la atención al paciente.<br>
+              &nbsp; Con un sistema de acceso global de datos de pacientes, los médicos pueden ver el historial médico completo de un paciente,
+            incluyendo diagnósticos anteriores, resultados de pruebas, medicamentos y alergias, lo que les permite tomar decisiones
+              basadas en información precisa y actualizada.<br>
+              &nbsp;Además, este sistema puede mejorar la eficiencia del flujo de trabajo y reducir los errores médicos. 
+            Los médicos pueden acceder a los datos de los pacientes de manera rápida y sencilla,
+            lo que reduce la necesidad de registros en papel y la duplicación de pruebas médicas innecesarias.</p>
         </div>
       </section>    
-          <section class="card bg-danger col-lg-6">
+          <section class="card bg-danger col-lg-6" id="registro">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Registrate para más beneficios</h5>
+              <h5 class="card-title fw-bold">Registrate en nuestro sistema</h5>
               <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <br>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <br>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      <br>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Teléfono</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <br>
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <h1>INGRESO DE PACIENTE</h1>
+<form action="">
 
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                      </div>
-              </form>
-           
-              <div class="card-body">
-                <h5 class="card-title fw-bold">Beneficios</h5>
-                <ul class="nav fw-bold">
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Rápido</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Seguro</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Limpio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Flexible</a>
-                  </li>
-                </ul>
-              </div>
+<label for=""  class="form-label ">NOMBRES</label><br>
+<input type="text" id="nombres" class="form-label col-12"><br>
+
+
+<label for=""  class="form-label">APELLIDOS</label><br>
+<input type="text" id="apellidos" class="form-label col-12"><br>
+
+<label for=""  class="form-label" class="form-label">EDAD</label><br>
+<input type="text" id="edad" class="form-label col-12"><br>
+
+<label for=""  class="form-label">RUT</label><br>
+<input type="text" id="rut" class="form-label col-12"><br>
+
+<label for=""  class="form-label">AÑO DE NACIMIENTO</label><br>
+<input type="text" id="anio_de_nacimiento" class="form-label col-12"><br>
+
+<label for=""  class="form-label">TIPO DE SANGRE</label><br>
+<input type="text" id="tipo_de_sangre" class="form-label col-12"><br>
+
+<label for=""  class="form-label">EMAIL</label><br>
+<input type="text" id="email" class="form-label col-12"><br>
+
+<label for=""  class="form-label">TELEFONO</label><br>
+<input type="text" id="telefono" class="form-label col-12"><br>
+
+<label for=""  class="form-label">DIRECCION</label><br>
+<input type="text" id="direccion" class="form-label col-12"><br>
+
+<label for=""  class="form-label" class="form-label">CONTRASEÑA</label><br>
+<input type="text" id="contrasena" class="form-label col-12" ><br>
+<button onclick="ingresar()" class="btn btn-primary">INGRESAR</button>
+
+</form>
+
+   
             </section> 
         
-        <section class="card bg-warning col-lg-11">
-          <div class="card-body">
-            <h5 class="card-title">Informacion de las bodades de nuestra institucion</h5>
-            <p class="card-text"> <cite> Carlos : </cite>"Definitivamente regresaré a esta ferretería
-              para todas mis necesidades de bricolaje en el futuro".</p>
-              <p class="card-text"> <cite>Raúl : </cite>"Esta ferretería ha sido mi salvación en más de
-                una ocasión. Me encanta el hecho de que siempre tienen todo lo que
-                necesito para arreglar cosas en mi hogar".</p>
-          </div>
-        </section>
+            <section id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner align-content-center">
+                <div class="carousel-item active ">
+                  <img src="assets/img/paciente.jpg" class="d-block w-auto mx-auto" alt="Noticia 1">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Noticia 1</h5>
+                    <p class="d-inline-block text-black bg-light opacity-50 p-2">Nuestro paciente estrella</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://picsum.photos/200/300" class="d-block w-auto mx-auto" alt="Noticia 2">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Noticia 2</h5>
+                    <p class="d-inline-block text-black bg-light opacity-50 p-2">Some representative placeholder content for the second slide.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://picsum.photos/200/300" class="d-block w-auto mx-auto" alt="Noticia 3">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>Noticia 3</h5>
+                    <p class="d-inline-block text-black bg-light opacity-50 p-2">Some representative placeholder content for the third slide.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </section>
         <section class="card bg-info text-center col-lg-5  align-content-center me-1">
           <div class="card-body">
-            <h5 class="card-title ">Proveedores</h5>
+            <h5 class="card-title ">Socios</h5>
             <div class="container  align-content-center">
               <div class="row justify-content-center  align-content-center">
-              <div class="col-6"><img src="imagenes/logo1.png" class="img-thumbnail "  id="a" alt="Gente emocionada">
-                <figcaption><a href="" class="text-bottom">Dewalt</a></figcaption>
+              <div class="col-6"><img src="assets/img/logo1.png" class="img-thumbnail "  id="a" alt="Gente emocionada">
+                <figcaption><a href="" class="text-bottom">FONASA</a></figcaption>
               </div>
-              <div class="col-6"><img src="imagenes/logo2.png" class="img-thumbnail "   id="b" alt="Gente emocionada">
-                <figcaption><a href="">Makita</a></figcaption>
+              <div class="col-6"><img src="assets/img/logo2.png" class="img-thumbnail "   id="b" alt="Gente emocionada">
+                <figcaption><a href="">Isapres</a></figcaption>
               </div>
-              <div class="col-6"><img src="imagenes/logo3.png" class="img-thumbnail "   id="c" alt="Gente emocionada">
-                <figcaption><a href="">Bahco</a></figcaption>
+              <div class="col-6"><img src="assets/img/logo3.png" class="img-thumbnail "   id="c" alt="Gente emocionada">
+                <figcaption><a href="">Clinica Bupa</a></figcaption>
               </div>
-              <div class="col-6"><img src="imagenes/logo4.png" class="img-thumbnail "  id="d"alt="Gente emocionada">
-                <figcaption><a href="">Stahlwille</a></figcaption>
+              <div class="col-6"><img src="assets/img/logo4.png" class="img-thumbnail "  id="d"alt="Gente emocionada">
+                <figcaption><a href="">Universidad del Desarrollo</a></figcaption>
               </div>
             </div>
             </div>
@@ -151,25 +197,25 @@
           <div class="card-body">
             <h5 class="card-title">Encuentranos</h5>
             <p class="card-text"> Dirección: Calle Falsa #123</p>
-              <img src="imagenes/mapa.jpg" class="card-img-bottom" alt="Gente emocionada">
+              <img src="assets/img/mapa.jpg" class="card-img-bottom" alt="Gente emocionada">
           </div>
         </section>
       </div>
   </main>
 
-  <footer class="text-center bg-secondary mt-3 py-2">
+  <footer class="text-center bg-secondary-subtle mt-3 py-2">
 
       <a href="https://www.facebook.com/"
-      ><img src="imagenes/facebook.png" alt="Facebook"
+      ><img src="assets/img/facebook.png" alt="Facebook"
     /></a>
     <a href="https://www.twitter.com/"
-      ><img src="imagenes/twitter.png" alt="Twitter"
+      ><img src="assets/img/twitter.png" alt="Twitter"
     /></a>
     <a href="https://www.whatsapp.com/"
-      ><img src="imagenes/whatsapp.png" alt="Whatsapp"
+      ><img src="assets/img/whatsapp.png" alt="Whatsapp"
     /></a>
     <a href="https://www.instagram.com/"
-      ><img src="imagenes/instagram.png" alt="Instagram"
+      ><img src="assets/img/instagram.png" alt="Instagram"
     /></a>
 
     <p>Copyright 2023 - Desarrollos TD.</p>
@@ -177,8 +223,9 @@
 
   </footer>
 </body>
+
+<script src="logica/logica.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
+ 
 </html>
-

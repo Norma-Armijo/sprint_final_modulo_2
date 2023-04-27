@@ -1,6 +1,37 @@
+
+
+//Comprobar Login
+function comprobar() {
+  let x = document.getElementById("usuario");
+  let y = document.getElementById("password");
+  if (x.value === y.value) {
+    alert("Los datos ingresados son identicos");
+   /*
+    var url = "productos.html";
+
+    var a = document.createElement("a");
+    a.target = "_blank";
+    a.href = url;
+    a.click(); */
+
+      window.open("pagina_privada.html");
+  } else {
+    alert("Los datos ingresados no son idénticos");
+  }
+  //alert("FUNCIONO");
+}
+
+//Modal
+$('#exampleModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
+
+
 //REGISTRAR PACIENTE
 
 function ingresar() {
+  alert("entre agregar paciente");
   let nombres = document.getElementById("nombres").value;
   let apellidos = document.getElementById("apellidos").value;
   let edad = document.getElementById("edad").value;
@@ -386,6 +417,7 @@ class Paciente {
       },
     ];
     this.parientes = [];
+    this.citas = []
   }
 }
 

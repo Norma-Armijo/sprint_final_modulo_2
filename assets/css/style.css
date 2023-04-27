@@ -1,0 +1,13 @@
+/* Margen para que no tape el navbar */
+
+body {
+  margin-top: 100px;
+}
+
+/* Tamaño de imágenes del footer */
+
+footer img {
+  width: 20px;
+  height: 20px;
+}
+

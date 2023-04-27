@@ -25,14 +25,14 @@
           <ul class="navbar-nav text-center">
     
             <li class="nav-item">
-              <a class="nav-link rounded-5 mx-1 my-sm-2" href="productos.html">Enfermedades</a>
+              <a class="nav-link rounded-5 mx-1 my-sm-2" href="enfermedades.html">Enfermedades</a>
             <li class="nav-item">
-              <a class="nav-link rounded-5 mx-1 my-sm-2" href="comprar.html">Condición base</a>
+              <a class="nav-link rounded-5 mx-1 my-sm-2" href="comprar.html">Parientes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link rounded-5 mx-1 my-sm-2" href="marcas.html">Exámenes</a>
             <li class="nav-item">
-              <a class="nav-link rounded-5 mx-1 my-sm-2" href="contacto.html">Calendario </a>
+              <a class="nav-link rounded-5 mx-1 my-sm-2" href="calendario.html">Calendario </a>
             </li>
             <li class="nav-item">
               <a class="nav-link rounded-5 mx-1 my-sm-2" href="index.html">Log Out</a>
@@ -64,7 +64,7 @@
           <div class="container-fluid">
             <img class="img-fluid mt-3" src="assets/img/paciente.jpg" alt="Paciente">
             <div class="card my-2">
-              <a class="card-body text-decoration-none" href="assets/prueba/gpt.html">
+              <a class="card-body text-decoration-none" href="calendario.html">
                 <i class="bi bi-people-fill"></i>Citas
               </a> <!--formulario para agregar a la lista-->
             </div>
@@ -82,11 +82,28 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="boton_cierre"o ></button>
                   </div>
                   <div class="modal-body">
-                    (Aquí va el formulario para agregar parientes)
+                    <form action="">
+                      <label for="">RUT PACIENTE</label><br>
+                      <input type="text" id="rut_paciente" class="col-12"><br>
+                      <label for="">NOMBRES</label><br>
+                      <input type="text" id="nombres" class="col-12><br>
+                      <label for="">APELLIDOS</label><br>
+                      <input type="text" id="apellidos" class="col-12><br>
+                      <label for="">RUT</label><br>
+                      <input type="text" id="rut" class="col-12><br>
+                      <label for="">EMAIL</label><br>
+                      <input type="text" id="email" class="col-12><br>
+                      <label for="">TELEFONO</label><br>
+                      <input type="text" id="telefono" class="col-12><br>
+                      <label for="">DIRECCION</label><br>
+                      <input type="text" id="direccion" class="col-12><br>
+                      <label for="">CONTRASEÑA</label><br>
+                      <input type="text" id="contrasena" class="col-12><br>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                    <button class="btn btn-primary"data-bs-dismiss="modal"  onclick="pariente()" >INGRESAR</button>
+                  </form>
                   </div>
                 </div>
               </div>
@@ -105,11 +122,117 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="boton_cierre"o ></button>
                   </div>
                   <div class="modal-body">
-                    (Aquí va el formulario para agregar examen)
+                    
+    <form action=>
+        <label for="rut_paciente">RUT PACIENTE</label><br>
+<input type="text" id="rut_paciente">
+
+    </form>
+    
+
+    <details>
+
+        <summary> Examen de Sangre </summary>
+       <form>
+        <label for="hemoglobina">Hemoglobina:</label><br>
+        <input type="number" id="hemoglobina"><br><br>
+
+        <label for="globulosBlancos">Glóbulos Blancos:</label><br>
+        <input type="number" id="globulosBlancos"><br><br>
+
+        <label for="globulosRojos">Glóbulos Rojos:</label><br>
+        <input type="number" id="globulosRojos"><br><br>
+
+        <label for="plaquetas">Plaquetas:</label><br>
+        <input type="number" id="plaquetas"><br><br>
+
+        <label for="fecha_examen_de_sangre">Fecha del Examen:</label><br>
+        <input type="date" id="fecha_examen_de_sangre"><br><br>
+
+        <button class="btn btn-primary"data-bs-dismiss="modal"  onclick="examen_de_sangre()">Crear Examen</button>
+    </form>
+	
+    </details>
+
+    <details>
+
+        <summary>
+Pruebas Funcion Renal
+            
+        </summary>
+
+
+
+        <form>
+  <label for="creatinina">Creatinina:</label><br>
+  <input type="text" id="creatinina"><br>
+  
+  <label for="urea">Urea:</label><br>
+  <input type="text" id="urea"><br>
+  
+  <label for="acidoUrico">Ácido Úrico:</label><br>
+  <input type="text" id="acidoUrico"><br>
+  
+  <label for="albumina">Albumina:</label><br>
+  <input type="text" id="albumina"><br>
+  
+       <label for="fecha_examen_funcion_renal">Fecha:</label><br>
+     <input type="date" id="fecha_examen_funcion_renal"><br><br>
+  <button class="btn btn-primary"data-bs-dismiss="modal"   onclick="examen_funcion_renal()">Crear instancia</button>
+</form>
+
+    </details>
+
+
+    <details>
+
+        <summary>Funcion Pulmonar</summary>
+
+      <form>
+    <label for="capacidadVital">Capacidad Vital:</label><br>
+    <input type="number" id="capacidadVital" name="capacidadVital"><br><br>
+
+    <label for="volumenCorriente">Volumen Corriente:</label><br>
+    <input type="number" id="volumenCorriente" name="volumenCorriente"><br><br>
+
+    <label for="volumenResidual">Volumen Residual:</label><br>
+    <input type="number" id="volumenResidual" name="volumenResidual"><br><br>
+
+    <label for="flujoEsencial">Flujo Esencial:</label><br>
+    <input type="number" id="flujoEsencial" name="flujoEsencial"><br><br>
+
+       <label for="fecha_examen_funcion_pulmonar">Fecha:</label><br>
+     <input type="date" id="fecha_examen_funcion_pulmonar"><br><br>
+  <button class="btn btn-primary"data-bs-dismiss="modal"   onclick="examen_funcion_pulmonar()">Crear instancia</button>
+
+  </form>
+
+    </details>
+	
+    <details>
+        <summary>Examen De Glucosa</summary>
+
+        <form>
+  <label for="glucosaEnAyunas">Glucosa en Ayunas:</label><br>
+  <input type="text" id="glucosaEnAyunas"><br>
+  
+  <label for="glucosaPostPrandial">Glucosa Post Prandial:</label><br>
+  <input type="text" id="glucosaPostPrandial"><br>
+  
+  <label for="hemoglobinaGlicosilada">Hemoglobina Glicosilada:</label><br>
+  <input type="text" id="hemoglobinaGlicosilada"><br>
+  
+  <label for="toleranciaALaGlucosa">Tolerancia a la Glucosa:</label><br>
+  <input type="text" id="toleranciaALaGlucosa"><br>
+   <label for="fecha">Fecha del Examen:</label><br>
+    <input type="date" id="fecha_examen_glucosa"><br><br>
+  <button class="btn btn-primary"data-bs-dismiss="modal"   onclick="examen_glucosa()">Crear instancia</button>
+</form>
+
+    </details>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
                   </div>
                 </div>
               </div>
@@ -192,16 +315,16 @@
                 <table class="table table-success">
                   <tbody>
                     <tr>
-                      <td>Función renal                 <button class="btn btn-dark float-end" >Ver más</button></td>
+                      <td>Función renal                 <button class="btn btn-dark float-end" ><a href="pruebas_funcion_renal.html">Ver más</a> </button></td>
                     </tr>
                     <tr>
-                      <td>Función pulmonar             <button class="btn btn-dark float-end" >Ver más</button></td>
+                      <td>Función pulmonar             <button class="btn btn-dark float-end" ><a href="pruebas_funcion_pulmonar.html">Ver más</a></button></td>
                     </tr>
                     <tr>
-                      <td>Examen de sangre                  <button class="btn btn-dark float-end" >Ver más</button></td>
+                      <td>Examen de sangre                  <button class="btn btn-dark float-end" ><a href="examen_sangre.html">Ver más</a></button></td>
                     </tr>
                     <tr>
-                      <td>Glucosa                 <button class="btn btn-dark float-end" >Ver más</button></td>
+                      <td>Glucosa                 <button class="btn btn-dark float-end" ><a href="examen_glucosa.html">Ver más</a></button></td>
                     </tr>
                   </tbody>
                 </table>
