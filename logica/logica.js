@@ -917,10 +917,10 @@ let enfermedadesSelect = document.getElementById("enfermedades-select");
 
 
 function agregar_enfermedad_paciente() {
+alert("entro");
+let descarga_rut = localStorage.getItem("rut");
 
-
-
-  let rut = document.getElementById("rut_paciente").value;
+  let rut = descarga_rut;
 
   let enfermedad = document.getElementById("enfermedades-select").value;
   let observaciones = document.getElementById("enfermedad_observaciones").value;
