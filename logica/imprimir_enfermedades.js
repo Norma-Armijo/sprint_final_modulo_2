@@ -1,14 +1,24 @@
 
-  alert("entre");
 
   let pacientes = JSON.parse(localStorage.getItem("pacientes"));
-
+let descarga_rut = localStorage.getItem("rut");
+ 
   codigo = "";
 
-  for (let i = 0; i < pacientes[4].enfermedades.length; i++) {
-    let diagnostico = pacientes[4].enfermedades[i].diagnostico;
+array = [];
 
-    let observaciones = pacientes[4].enfermedades[i].observaciones;
+for (let i = 0; i < pacientes.length; i++) {
+
+
+  if (pacientes[i].rut == descarga_rut) {
+    array = pacientes[i];
+  }
+}
+
+  for (let i = 0; i < array.enfermedades.length; i++) {
+    let diagnostico = array.enfermedades[i].diagnostico;
+
+    let observaciones = array.enfermedades[i].observaciones;
 
       let elemento_html =
         " <div class='col-lg-3 col-md-6 col-sx-12 col-sm-10 d-flex justify-content-center my-2' >"+

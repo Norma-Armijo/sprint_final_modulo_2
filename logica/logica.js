@@ -7,11 +7,9 @@ function comprobar() {
   
   let persistencia = new Persistencia();
   let pacientes = persistencia.descargar_arreglo_localstorage();
-  alert(pacientes.length);
   for (let i = 0; i < pacientes.length; i++) {
    
     if (pacientes[i].email == x.value) {
-alert(pacientes[i].email);
       let rut_local = pacientes[i].rut;
       localStorage.setItem("rut", rut_local);
 
@@ -35,9 +33,8 @@ alert(pacientes[i].email);
 
       window.open("pagina_privada.html");
   } else {
-    alert("Los datos ingresados no son idénticos");
+    alert("Los datos ingresados no son idénticos, ingrese los mismos caracteres en email y contraseña");
   }
-  //alert("FUNCIONO");
  
 }
 
@@ -50,7 +47,7 @@ function prueba_1() {
 //REGISTRAR PACIENTE
 
 function ingresar() {
-  alert("entre agregar paciente");
+ 
   let nombres = document.getElementById("nombres").value;
   let apellidos = document.getElementById("apellidos").value;
   let edad = document.getElementById("edad").value;
@@ -79,7 +76,7 @@ function ingresar() {
 }
 
 function pariente() {
-  alert("entrado");
+  
   let rutPaciente = document.getElementById("rut_paciente").value;
   let nombres = document.getElementById("nombres").value;
   let apellidos = document.getElementById("apellidos").value;
@@ -100,7 +97,7 @@ function pariente() {
     contrasena
   );
 
-  alert(pariente);
+
   persistencia.agregar_pariente(rutPaciente, pariente);
 }
 
@@ -117,7 +114,6 @@ function btn_ingresar_paciente() {
   let email = document.getElementById("").value;
 
 */
-alert("Entrando a muestras")
   let persistencia = new Persistencia();
 
   let paciente_1 = new Paciente(
@@ -125,7 +121,7 @@ alert("Entrando a muestras")
     "01/01/2000", "A", "juan@juan.cl", "+569 4333 4333",
     "La Gruta 265, Calera de Tango", "clave secreta"
   );
-  alert(paciente_1);
+  
   console.log(paciente_1);
    persistencia.agregar_paciente(paciente_1);
 
@@ -177,12 +173,15 @@ alert("Entrando a muestras")
 
 
 function agregar_examen() {
+  let descarga_rut = localStorage.getItem("rut");
   let persistencia = new Persistencia();
   let examen = new ExamenDeGlucosa(2, 2, 2, 2);
-  persistencia.agregar_examen("12.233.233-7", "EXAMEN-DE-GLUCOSA", examen);
+  persistencia.agregar_examen(descarga_rut, "EXAMEN-DE-GLUCOSA", examen);
 }
 
 function agregar_pariente_rut() {
+  let descarga_rut = localStorage.getItem("rut");
+ 
   let persistencia = new Persistencia();
 
   let pariente = new Pariente(
@@ -193,21 +192,21 @@ function agregar_pariente_rut() {
     "pasaje la cruz | Calera"
   );
 
-  persistencia.agregar_pariente("12.233.233-7", pariente);
+  persistencia.agregar_pariente(descarga_rut, pariente);
 }
 
 function examen_glucosa() {
-  alert("entre a glucosa");
-  let rut_paciente = document.getElementById("rut_paciente_examen").value;
-  alert(rut_paciente);
+ let descarga_rut = localStorage.getItem("rut");
+ 
+  
 
   let glucosaEnAyunasInput = document.getElementById("glucosaEnAyunas").value;
   let glucosaPostPrandialInput = document.getElementById("glucosaPostPrandial").value;
   let hemoglobinaGlicosiladaInput = document.getElementById("hemoglobinaGlicosilada").value;
   let toleranciaALaGlucosaInput = document.getElementById("toleranciaALaGlucosa").value;
   let fecha = document.getElementById("fecha_examen_glucosa").value;
-  let fecha_date = new Date(fecha);
-  alert(glucosaEnAyunasInput);
+  let fecha_date = new Date();
+ 
 
   let persistencia = new Persistencia();
   let examen = new ExamenDeGlucosa(
@@ -218,17 +217,18 @@ function examen_glucosa() {
     fecha_date
   );
   console.log(examen);
-  persistencia.agregar_examen(rut_paciente, "EXAMEN-DE-GLUCOSA", examen);
+  persistencia.agregar_examen(descarga_rut, "EXAMEN-DE-GLUCOSA", examen);
 }
 
 
 
 
 function examen_funcion_renal() {
-  alert("entre a funcion renal");
   
+  let descarga_rut = localStorage.getItem("rut");
+ 
   let rut_paciente = document.getElementById("rut_paciente").value;
-  alert(rut_paciente);
+ 
  
   let creatinina = parseInt(document.getElementById("creatinina").value);
  let urea = parseInt(document.getElementById("urea").value);
@@ -239,7 +239,7 @@ function examen_funcion_renal() {
   
   let fecha = document.getElementById("fecha_examen_funcion_renal").value;
   let fecha_date = new Date();
-  alert(fecha);
+
   
   
   
@@ -252,32 +252,33 @@ function examen_funcion_renal() {
     fecha_date
   );
   
-  persistencia.agregar_examen(rut_paciente, "PRUEBAS-FUNCION-RENAL", examen);
+  persistencia.agregar_examen(descarga_rut, "PRUEBAS-FUNCION-RENAL", examen);
 }
 
 
 
 
 function examen_funcion_pulmonar() {
-  alert("entre a funcion pulmonar");
+  let descarga_rut = localStorage.getItem("rut");
+ 
   let rut_paciente = document.getElementById("rut_paciente").value;
-  alert(rut_paciente);
+
 
  let capacidadVital = 
    document.getElementById("capacidadVital").value
   ;
-  alert(capacidadVital);
+  
  let volumenCorriente = parseInt(
    document.getElementById("volumenCorriente").value
-  ); alert(volumenCorriente);
+  ); 
  let volumenResidual = parseInt(
    document.getElementById("volumenResidual").value
-  ); alert(volumenResidual);
+  ); 
  let flujoEsencial = parseInt(document.getElementById("flujoEsencial").value);
-  alert(flujoEsencial)
+
   let fecha = document.getElementById("fecha_examen_funcion_pulmonar").value;
   let fecha_date = new Date();
-  alert(fecha);
+ 
   let persistencia = new Persistencia();
   let examen = new FuncionPulmonar(
     capacidadVital,
@@ -286,16 +287,16 @@ function examen_funcion_pulmonar() {
     flujoEsencial,
     fecha_date
   );
-  alert(examen.capacidadVital);
-  persistencia.agregar_examen(rut_paciente, "PRUEBAS-FUNCION-PULMONAR", examen);
+
+  persistencia.agregar_examen(descarga_rut, "PRUEBAS-FUNCION-PULMONAR", examen);
 }
 
 
 function examen_de_sangre() {
-  alert("entre a examen de sangre");
+ let descarga_rut = localStorage.getItem("rut");
+ 
   let rut_paciente = document.getElementById("rut_paciente").value;
-  alert(rut_paciente);
-
+  
 
  const hemoglobina = parseFloat(document.getElementById("hemoglobina").value);
  const globulosBlancos = parseInt(
@@ -308,7 +309,7 @@ function examen_de_sangre() {
 
   let fecha = document.getElementById("fecha_examen_de_sangre").value;
   let fecha_date = new Date();
-  alert(fecha);
+
   let persistencia = new Persistencia();
   let examen = new ExamenDeSangre(
     hemoglobina,
@@ -317,102 +318,10 @@ function examen_de_sangre() {
     plaquetas,
     fecha_date
   );
-  alert(examen.capacidadVital);
-  persistencia.agregar_examen(rut_paciente, "EXAMEN-DE-SANGRE", examen);
+ 
+  persistencia.agregar_examen(descarga_rut, "EXAMEN-DE-SANGRE", examen);
 }
 
-
-
-/*
-
-function imprimir_grafico_glucosa() {
-
-  alert("entre");
-
-  let datos = [];
-  let persistencia = new Persistencia();
-
-  let pacientes = persistencia.descargar_arreglo_localstorage();
-  alert(pacientes);
-  
-
-  let rut_paciente = document.getElementById("rut_paciente_e").value;
-  alert(rut_paciente);
-  alert(pacientes.length);
-   for (let i = 0; i < pacientes.length; i++) {
-     alert("i: " + i);
-     alert("PACIENTES :" + pacientes[i].rut);
-     alert("RUT INGRESADO : " + rut_paciente);
-
-     if (pacientes[i].rut == rut_paciente) {
-       alert("RUT COINCIDE");
-
-       for (let j = 0; j < pacientes[i].examenes.length; j++) {
-         alert("j: " + j);
-         alert("a : " + pacientes[i].examenes[j].tipo);
-        
-
-         if (pacientes[i].examenes[j].tipo == "EXAMEN-DE-GLUCOSA") {
-           alert("EXAMEN COINCIDE");
-            datos = pacientes[i].examenes[j].lista;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           alert("stop");
-         }
-       }
-     }
-  }
-  
-  const ctx = document.getElementById("grafico").getContext("2d");
-
-  const chart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: datos.map((item) => item.fecha),
-      datasets: [
-        {
-          label: "Ventas",
-          data: datos.map((item) => item.glucosaEnAyunasInput),
-          backgroundColor: "blue",
-        },
-        {
-          label: "Gastos",
-          data: datos.map((item) => item.glucosaPostPrandial),
-          backgroundColor: "red",
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        ],
-      },
-    },
-  });
-
-
-}
-
-*/
 
 //******************************************************************************* */
 //******************************************************************************* */
@@ -520,8 +429,6 @@ class Persistencia {
   }
 
   agregar_paciente(paciente) {
-  alert("ENTRE EN AGREGAR PACIENTE");
-
     console.log(this.descargar_arreglo_localstorage());
     let pacientes = this.descargar_arreglo_localstorage();
     console.log(pacientes);
@@ -556,7 +463,6 @@ class Persistencia {
   }
 
   agregar_examen(rut_paciente, tipo, examen) {
-    alert(rut_paciente);
     let pacientes = this.descargar_arreglo_localstorage();
 
     for (let i = 0; i < pacientes.length; i++) {
@@ -583,7 +489,6 @@ class Persistencia {
   }
 
   agregar_pariente(rut_paciente, pariente) {
-    alert(rut_paciente);
     let pacientes = this.descargar_arreglo_localstorage();
 
     for (let i = 0; i < pacientes.length; i++) {
@@ -601,7 +506,6 @@ class Persistencia {
   }
 
   agregar_enfermedad(rut_paciente, enfermedad) {
-    alert(rut_paciente);
     let pacientes = this.descargar_arreglo_localstorage();
 
     for (let i = 0; i < pacientes.length; i++) {
@@ -993,12 +897,8 @@ class ExamenDeGlucosa {
   ];
 
 function imprimir_enfermedades() { 
-
-  
-  alert("CARGO");
   
 
-  alert(enfermadades);
 let enfermedadesSelect = document.getElementById("enfermedades-select");
 
 // Agregar las opciones al elemento select
@@ -1026,9 +926,7 @@ function agregar_enfermedad_paciente() {
   let observaciones = document.getElementById("enfermedad_observaciones").value;
 
   let diccionario_enfermedad = {"diagnostico":enfermedad,"observaciones":observaciones}
-  
-  alert(rut);
-  alert(enfermedad);
+
   let persistencia = new Persistencia();
   persistencia.agregar_enfermedad(rut, diccionario_enfermedad);
 }
